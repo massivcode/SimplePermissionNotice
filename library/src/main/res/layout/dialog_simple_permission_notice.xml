@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_container"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/mandatory_container_ll"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mandatory_title_tv"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="[필수 권한]" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mandatory_rv"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/optional_container_ll"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/optional_title_tv"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="[선택 권한]" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/optional_rv"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ok_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@android:string/ok"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:textColor="#2196f3" />
+
+</LinearLayout>
