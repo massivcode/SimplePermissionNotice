@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/prChoe/SimplePermissionNotice.svg)](https://jitpack.io/#prChoe/SimplePermissionNotice)
+
 # What is SimplePermissionNotice?
 
 ⌈정보통신망법⌋ 개정('16.3.22 공포) 주요 내용 중 '스마트폰 앱 접근권한에 대한이용자 동의권 강화' 에 대응하기 위한 라이브러리 입니다. 
