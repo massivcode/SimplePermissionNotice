@@ -20,6 +20,40 @@
 
 ## Setup
 
+### 1. Gradle
+
+```gradle
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+```gradle
+compile 'com.github.prChoe:SimplePermissionNotice:1.0.1'
+```
+
+### 2. Maven
+
+```maven
+<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+
+```maven
+<dependency>
+	    <groupId>com.github.prChoe</groupId>
+	    <artifactId>SimplePermissionNotice</artifactId>
+	    <version>1.0.1</version>
+	</dependency>
+```
+
 ## How to Use
 
 ### 1. Initialize
