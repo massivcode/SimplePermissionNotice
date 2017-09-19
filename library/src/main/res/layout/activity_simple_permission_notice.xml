@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".SimplePermissionNoticeActivity">
 
     <LinearLayout
         android:id="@+id/mandatory_container_ll"
