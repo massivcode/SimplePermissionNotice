@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SimplePermissionNotice</string>
+    <string name="simplePermissionNotice_mandatoryPermissionTitle">[Mandatory Permissions]</string>
+    <string name="simplePermissionNotice_optionalPermissionTitle">[Optional Permissions]</string>
 </resources>

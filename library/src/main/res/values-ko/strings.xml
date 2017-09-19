@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimplePermissionNotice</string>
+    <string name="simplePermissionNotice_mandatoryPermissionTitle">[필수 권한]</string>
+    <string name="simplePermissionNotice_optionalPermissionTitle">[선택 권한]</string>
+</resources>
