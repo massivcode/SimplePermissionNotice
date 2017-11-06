@@ -7,7 +7,11 @@ import java.io.Serializable;
  */
 
 public interface SimplePermissionNoticeCallback extends Serializable {
-    void onDismiss(String[] permissionCodes, String[] mandatoryPermissionCodes, String[] optionalPermissionCodes);
 
-    void onUnderMarshmallow();
+  void onGranted();
+
+  void onDismiss(String[] permissionCodes, String[] mandatoryPermissionCodes,
+      String[] optionalPermissionCodes);
+
+  void onUnderMarshmallow();
 }
