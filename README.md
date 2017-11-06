@@ -34,7 +34,7 @@ allprojects {
 ```
 
 ```gradle
-compile 'com.github.prChoe:SimplePermissionNotice:1.1.5'
+compile 'com.github.prChoe:SimplePermissionNotice:1.1.6'
 ```
 
 ### 2. Maven
@@ -52,7 +52,7 @@ compile 'com.github.prChoe:SimplePermissionNotice:1.1.5'
 <dependency>
 	    <groupId>com.github.prChoe</groupId>
 	    <artifactId>SimplePermissionNotice</artifactId>
-	    <version>1.1.5</version>
+	    <version>1.1.6</version>
 	</dependency>
 ```
 
