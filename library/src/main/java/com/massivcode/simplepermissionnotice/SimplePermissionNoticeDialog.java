@@ -148,24 +148,12 @@ public class SimplePermissionNoticeDialog extends DialogFragment {
         mOkTextView.setTextColor(mDialogUiConfig.getOkColor());
         mOkTextView.setText(mDialogUiConfig.getOkString());
 
-        boolean isMandatoryPermissionsEmpty = setPermissionList(mMandatoryPermissions, mMandatoryPermissionContainer, mMandatoryPermissionRecyclerView);
-        boolean isOptionalPermissionsEmpty = setPermissionList(mOptionalPermissions, mOptionalPermissionContainer, mOptionalPermissionRecyclerView);
-
-        if (isMandatoryPermissionsEmpty) {
-            mMandatoryPermissionContainer.setVisibility(View.GONE);
-        } else {
-            mMandatoryPermissionContainer.setVisibility(View.VISIBLE);
-        }
-
-        if (isOptionalPermissionsEmpty) {
-            mOptionalPermissionContainer.setVisibility(View.GONE);
-        } else {
-            mOptionalPermissionContainer.setVisibility(View.VISIBLE);
-        }
+        setPermissionList(mMandatoryPermissions, mMandatoryPermissionContainer, mMandatoryPermissionRecyclerView);
+        setPermissionList(mOptionalPermissions, mOptionalPermissionContainer, mOptionalPermissionRecyclerView);
     }
 
-    private boolean setPermissionList(ArrayList<PermissionInfo> target, LinearLayout container, RecyclerView recyclerView) {
-        boolean isEmpty = target == null;
+    private void setPermissionList(ArrayList<PermissionInfo> target, LinearLayout container, RecyclerView recyclerView) {
+        boolean isEmpty = target == null || target.isEmpty();
 
         if (isEmpty) {
             container.setVisibility(View.GONE);
@@ -185,7 +173,6 @@ public class SimplePermissionNoticeDialog extends DialogFragment {
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         }
 
-        return isEmpty;
     }
 
     private View.OnClickListener mOnOkClickListener = new View.OnClickListener() {

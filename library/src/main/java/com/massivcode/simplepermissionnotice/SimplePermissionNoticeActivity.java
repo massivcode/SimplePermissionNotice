@@ -129,24 +129,12 @@ public class SimplePermissionNoticeActivity extends AppCompatActivity {
         mOkTextView.setTextColor(mDialogUiConfig.getOkColor());
         mOkTextView.setText(mDialogUiConfig.getOkString());
 
-        boolean isMandatoryPermissionsEmpty = setPermissionList(mMandatoryPermissions, mMandatoryPermissionContainer, mMandatoryPermissionRecyclerView);
-        boolean isOptionalPermissionsEmpty = setPermissionList(mOptionalPermissions, mOptionalPermissionContainer, mOptionalPermissionRecyclerView);
-
-        if (isMandatoryPermissionsEmpty) {
-            mMandatoryPermissionContainer.setVisibility(View.GONE);
-        } else {
-            mMandatoryPermissionContainer.setVisibility(View.VISIBLE);
-        }
-
-        if (isOptionalPermissionsEmpty) {
-            mOptionalPermissionContainer.setVisibility(View.GONE);
-        } else {
-            mOptionalPermissionContainer.setVisibility(View.VISIBLE);
-        }
+        setPermissionList(mMandatoryPermissions, mMandatoryPermissionContainer, mMandatoryPermissionRecyclerView);
+        setPermissionList(mOptionalPermissions, mOptionalPermissionContainer, mOptionalPermissionRecyclerView);
     }
 
-    private boolean setPermissionList(ArrayList<PermissionInfo> target, LinearLayout container, RecyclerView recyclerView) {
-        boolean isEmpty = target == null;
+    private void setPermissionList(ArrayList<PermissionInfo> target, LinearLayout container, RecyclerView recyclerView) {
+        boolean isEmpty = target == null || target.isEmpty();
 
         if (isEmpty) {
             container.setVisibility(View.GONE);
@@ -158,15 +146,14 @@ public class SimplePermissionNoticeActivity extends AppCompatActivity {
 
 
             if (mItemDividerDrawableResourceId != -1) {
-                DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(SimplePermissionNoticeActivity.this, DividerItemDecoration.VERTICAL);
-                dividerItemDecoration.setDrawable(ContextCompat.getDrawable(SimplePermissionNoticeActivity.this, mItemDividerDrawableResourceId));
+                DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL);
+                dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getApplicationContext(), mItemDividerDrawableResourceId));
                 recyclerView.addItemDecoration(dividerItemDecoration);
             }
 
-            recyclerView.setLayoutManager(new LinearLayoutManager(SimplePermissionNoticeActivity.this));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         }
 
-        return isEmpty;
     }
 
     private View.OnClickListener mOnOkClickListener = new View.OnClickListener() {
