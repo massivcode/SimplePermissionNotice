@@ -34,7 +34,7 @@ allprojects {
 ```
 
 ```gradle
-compile 'com.github.prChoe:SimplePermissionNotice:1.1.7'
+compile 'com.github.prChoe:SimplePermissionNotice:1.1.8'
 ```
 
 ### 2. Maven
@@ -52,7 +52,7 @@ compile 'com.github.prChoe:SimplePermissionNotice:1.1.7'
 <dependency>
 	    <groupId>com.github.prChoe</groupId>
 	    <artifactId>SimplePermissionNotice</artifactId>
-	    <version>1.1.7</version>
+	    <version>1.1.8</version>
 	</dependency>
 ```
 
@@ -150,6 +150,12 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             // 사전 정의된 모든 Permission 을 고지하는 팝업을 띄운다.
             mNotice.showDialog(MainActivity.this, new SimplePermissionNoticeCallback() {
+	    	// 모든 Permission 이 허용되었을 때
+		@Override
+       		public void onGranted() {
+
+       		}
+	
                 @Override
                 public void onDismiss(String[] permissionCodes, String[] mandatoryPermissionCodes, String[] optionalPermissionCodes) {
                     // permissionCodes : 사전 정의된 모든 PermissionCodes
@@ -208,6 +214,12 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             // 사전 정의된 Permission 중 지정된 Permission 만 팝업으로 고지한다.
             mNotice.showDialog(MainActivity.this, new SimplePermissionNoticeCallback() {
+	    	// 모든 Permission 이 허용되었을 때
+		@Override
+       		public void onGranted() {
+
+       		}
+		
                 @Override
                 public void onDismiss(String[] permissionCodes, String[] mandatoryPermissionCodes, String[] optionalPermissionCodes) {
                     // permissionCodes : 사전 정의된 모든 PermissionCodes
@@ -256,6 +268,12 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             // 사전 정의된 모든 Permission 을 고지하는 Activity 를 실행한다.
             mNotice.showActivity(MainActivity.this, new SimplePermissionNoticeCallback() {
+	    	// 모든 Permission 이 허용되었을 때
+		@Override
+       		public void onGranted() {
+
+       		}
+		
                 @Override
                 public void onDismiss(String[] permissionCodes, String[] mandatoryPermissionCodes, String[] optionalPermissionCodes) {
                     // permissionCodes : 사전 정의된 모든 PermissionCodes
@@ -396,6 +414,12 @@ public void showActivity(Activity activity, int activityLayoutResourceId, Simple
 
 ```java
  mNotice.showDialog(MainActivity.this, new SimplePermissionNoticeCallback() {
+ 	    	// 모든 Permission 이 허용되었을 때
+		@Override
+       		public void onGranted() {
+
+       		}
+		
                 @Override
                 public void onDismiss(String[] permissionCodes, String[] mandatoryPermissionCodes, String[] optionalPermissionCodes) {
                     new TedPermission(MainActivity.this)
