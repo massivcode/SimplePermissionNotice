@@ -152,15 +152,15 @@ public class SimplePermissionNoticeDialog extends DialogFragment {
         boolean isOptionalPermissionsEmpty = setPermissionList(mOptionalPermissions, mOptionalPermissionContainer, mOptionalPermissionRecyclerView);
 
         if (isMandatoryPermissionsEmpty) {
-            mMandatoryPermissionContainer.setVisibility(View.VISIBLE);
-        } else {
             mMandatoryPermissionContainer.setVisibility(View.GONE);
+        } else {
+            mMandatoryPermissionContainer.setVisibility(View.VISIBLE);
         }
 
         if (isOptionalPermissionsEmpty) {
-            mOptionalPermissionContainer.setVisibility(View.VISIBLE);
-        } else {
             mOptionalPermissionContainer.setVisibility(View.GONE);
+        } else {
+            mOptionalPermissionContainer.setVisibility(View.VISIBLE);
         }
     }
 
