@@ -9,48 +9,59 @@ import com.massivcode.simplepermissionnotice.SimplePermissionNoticeCallback;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SimplePermissionNotice mNotice = SimplePermissionNotice.getInstance();
+  private SimplePermissionNotice mNotice = SimplePermissionNotice.getInstance();
 
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    findViewById(R.id.btn1).setOnClickListener(mOnActivityButtonClickListener);
+    findViewById(R.id.btn2).setOnClickListener(mOnDialogShowButtonClickListener);
+  }
+
+  private View.OnClickListener mOnActivityButtonClickListener = new View.OnClickListener() {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void onClick(View view) {
+      mNotice.showActivity(MainActivity.this, new SimplePermissionNoticeCallback() {
+        @Override
+        public void onGranted() {
 
-        findViewById(R.id.btn1).setOnClickListener(mOnActivityButtonClickListener);
-        findViewById(R.id.btn2).setOnClickListener(mOnDialogShowButtonClickListener);
+        }
+
+        @Override
+        public void onDismiss(String[] strings, String[] strings1, String[] strings2) {
+
+        }
+
+        @Override
+        public void onUnderMarshmallow() {
+
+        }
+      });
     }
+  };
 
-    private View.OnClickListener mOnActivityButtonClickListener = new View.OnClickListener() {
+  private View.OnClickListener mOnDialogShowButtonClickListener = new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+      mNotice.showDialog(MainActivity.this, new SimplePermissionNoticeCallback() {
+
         @Override
-        public void onClick(View view) {
-            mNotice.showActivity(MainActivity.this, new SimplePermissionNoticeCallback() {
-                @Override
-                public void onDismiss(String[] strings, String[] strings1, String[] strings2) {
+        public void onGranted() {
 
-                }
-
-                @Override
-                public void onUnderMarshmallow() {
-
-                }
-            });
         }
-    };
 
-    private View.OnClickListener mOnDialogShowButtonClickListener = new View.OnClickListener() {
         @Override
-        public void onClick(View view) {
-            mNotice.showDialog(MainActivity.this, new SimplePermissionNoticeCallback() {
-                @Override
-                public void onDismiss(String[] strings, String[] strings1, String[] strings2) {
+        public void onDismiss(String[] strings, String[] strings1, String[] strings2) {
 
-                }
-
-                @Override
-                public void onUnderMarshmallow() {
-
-                }
-            });
         }
-    };
+
+        @Override
+        public void onUnderMarshmallow() {
+
+        }
+      });
+    }
+  };
 }
