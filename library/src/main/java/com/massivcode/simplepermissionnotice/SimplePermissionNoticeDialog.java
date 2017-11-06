@@ -148,8 +148,20 @@ public class SimplePermissionNoticeDialog extends DialogFragment {
         mOkTextView.setTextColor(mDialogUiConfig.getOkColor());
         mOkTextView.setText(mDialogUiConfig.getOkString());
 
-        setPermissionList(mMandatoryPermissions, mMandatoryPermissionContainer, mMandatoryPermissionRecyclerView);
-        setPermissionList(mOptionalPermissions, mOptionalPermissionContainer, mOptionalPermissionRecyclerView);
+        boolean isMandatoryPermissionsEmpty = setPermissionList(mMandatoryPermissions, mMandatoryPermissionContainer, mMandatoryPermissionRecyclerView);
+        boolean isOptionalPermissionsEmpty = setPermissionList(mOptionalPermissions, mOptionalPermissionContainer, mOptionalPermissionRecyclerView);
+
+        if (isMandatoryPermissionsEmpty) {
+            mMandatoryPermissionContainer.setVisibility(View.VISIBLE);
+        } else {
+            mMandatoryPermissionContainer.setVisibility(View.GONE);
+        }
+
+        if (isOptionalPermissionsEmpty) {
+            mOptionalPermissionContainer.setVisibility(View.VISIBLE);
+        } else {
+            mOptionalPermissionContainer.setVisibility(View.GONE);
+        }
     }
 
     private boolean setPermissionList(ArrayList<PermissionInfo> target, LinearLayout container, RecyclerView recyclerView) {
