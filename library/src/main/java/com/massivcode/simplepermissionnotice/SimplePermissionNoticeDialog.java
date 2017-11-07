@@ -91,7 +91,6 @@ public class SimplePermissionNoticeDialog extends DialogFragment {
     outState.putSerializable("optionalPermissions", mOptionalPermissions);
     outState.putSerializable("uiConfig", mDialogUiConfig);
     outState.putInt("dividerResourceId", mItemDividerDrawableResourceId);
-    outState.putSerializable("callback", sCallback);
   }
 
   private void makeCallbackArrays() {
